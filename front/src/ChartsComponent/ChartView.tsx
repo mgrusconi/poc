@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import env from "react-dotenv";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -40,7 +39,7 @@ export function ChartView() {
   const [chartData, setChartData] = useState<Chart>(initChart);
   useEffect(() => {
     const getChartData = async () => {
-      const ruta = `${env.BACK_URL}/data/`;
+      const ruta = '/v1/data/';
       const { data } = await axios(ruta);
       const myData: Chart = {
         labels: data.labels,
